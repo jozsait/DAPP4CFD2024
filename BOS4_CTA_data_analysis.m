@@ -1,26 +1,26 @@
 close all;
-% clear all;
-% clc;
-% 
-% %% load data - Vel [m/s]; y [mm]
-% load('../HotWireData_Baseline.mat')
-% 
-% my_Y = flip(y+yOffset);
-% idx1 = 50;
-% idx2 = 51;
-% 
-% 
-% %% PROCESS DATA
-% my_Umean = mean(Vel);
-% my_Ustd = std(Vel);
-% my_Uskew = skewness(Vel);
-% my_Ukurt = kurtosis(Vel);
-% 
-% my_uprime = Vel - my_Umean;
-% S1 = my_uprime(:,idx1);
-% S2 = my_uprime(:,idx2);
-% 
-% [R,p] = corrcoef(S1,S2)
+clear all;
+clc;
+
+%% load data - Vel [m/s]; y [mm]
+load('../HotWireData_Baseline.mat')
+
+my_Y = flip(y+yOffset);
+idx1 = 50;
+idx2 = 51;
+
+
+%% PROCESS DATA
+my_Umean = mean(Vel);
+my_Ustd = std(Vel);
+my_Uskew = skewness(Vel);
+my_Ukurt = kurtosis(Vel);
+
+my_uprime = Vel - my_Umean;
+S1 = my_uprime(:,idx1);
+S2 = my_uprime(:,idx2);
+
+[R,p] = corrcoef(S1,S2)
 
 
 %% VISUALISE DATA
