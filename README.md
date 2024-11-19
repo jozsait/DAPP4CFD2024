@@ -7,4 +7,4 @@ BOS2 - second breakout session on polynomial reconstruction
 
 BOS3 - third breakout session on github repo creation
 
-BOS4 - fourth breakout session on statistics
+BOS4 - fourth breakout session on statistics and CTA data analysis
