@@ -24,13 +24,13 @@ S2 = my_uprime(:,idx2);
 
 
 %% VISUALISE DATA
-% Create a figure window with specific size in millimeters
+% Create a figure window with specific size
 figure;
 set(gcf, 'Units', 'pixels', 'Position', [100, 100, 1600/2, 1000/2]); % Set figure size to 180mm x 100mm
 
 % Define paper size for PDF export
 % set(gcf, 'PaperUnits', 'centimeters');
-set(gcf, 'PaperSize', [16 10]);    % Set paper size to 180mm x 100mm for PDF
+set(gcf, 'PaperSize', [16 10]);    % Set paper size to 16 cm x 10 cm for PDF
 
 % Use tiledlayout for more control over subplot spacing
 t = tiledlayout(2, 2, 'Padding', 'compact', 'TileSpacing', 'compact');
