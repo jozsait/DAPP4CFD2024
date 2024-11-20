@@ -26,7 +26,7 @@ my_exp = exp(-1i * 2 * pi * f * t);
 % ilim = [-inf,inf];
 
 % sinusoidal function
-S = 1.7+0.3*cos(4*pi*t);
+S = 2+sin(2*pi*t)+0.5*cos(4*pi*t+pi/1.2);
 tlim = [-4,4];
 flim = [-6,6];
 ilim = [-4,4];
@@ -56,13 +56,11 @@ f_d = Fs/L*(-L/2:L/2-1);
 % Scaled complex amplitude array
 S_hat_d_scaled = fftshift(fft(S_d));
 % Absolute value of the unscaled amplitude array
-S_hat_d = abs(S_hat_d_scaled) / L * 2;
+S_hat_d = abs(S_hat_d_scaled) / L * ( t_d(end)-t_d(1) );
 
 % single sided spectrum
-f_d_SiSi = Fs/L*(0:(L/2));
-S_FFT_abs = abs(fft(S_d)/L);
-S_hat_d_SiSi = S_FFT_abs(1:L/2+1);
-S_hat_d_SiSi(2:end-1) = 2*S_hat_d_SiSi(2:end-1);
+[f_d_SiSi, S_hat_d_SiSi] = SiSiFT(t_d,S_d);
+[f_d_SiSi_w, S_hat_d_SiSi_w] = SiSiFT(t_d,(hanning(L).').*S_d);
 
 
 
@@ -103,3 +101,11 @@ ylabel('$\hat S$',FontSize=14)
 delete(nexttile(3));
 
 disp([max(S_hat_d), trapz(t_d,S_d)])
+
+figure(99)
+plot(f_d_SiSi,S_hat_d_SiSi,'-k','LineWidth',2)
+hold on
+plot(f_d_SiSi_w,S_hat_d_SiSi_w,'--r','LineWidth',2)
+xlim([0,flim(2)])
+xlabel('$f$',FontSize=14)
+ylabel('$\hat S$',FontSize=14)
