@@ -27,4 +27,4 @@ precision_demo.m - snippet on precision and overflow/underflow
 
 
 ## MMS_example
-Solution of the unsteady 1D heat conduction equation with manufactured solution implemented for verification purposes. By default, the code generates a 1000 pictures which can be turned into a video using the video_maker.m file.
+Solution of the unsteady 1D heat conduction equation with manufactured solution implemented for verification purposes. By default, the code generates 1000 pictures which can be turned into a video using the video_maker.m file.
