@@ -6,14 +6,14 @@ close all;
 
 % Generate synthetic data: Polynomial function with noise
 % Define a polynomial with multiple inflection points, minima, and maxima
-x = linspace(-5, 5, 71)';    % Input values (1D data)
+x = linspace(-5, 5, 501)';    % Input values (1D data)
 y_true = 0.1*x.^5 - 0.5*x.^3 + x.^2 - 2*x;  % True function (5th-degree polynomial)
 
 % Add noise to the polynomial function
 noise = 5 * randn(size(x));  % Gaussian noise
 y_noisy = y_true + noise;      % Noisy data
 
-split_type = 0;
+split_type = 1;
 
 %% SPLITTING DATA
 if split_type==1
